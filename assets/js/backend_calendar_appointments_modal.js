@@ -71,6 +71,7 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
             }
 
             var customer = {
+                document_requested: $dialog.find('#select-document').val(),
                 first_name: $dialog.find('#first-name').val(),
                 last_name: $dialog.find('#last-name').val(),
                 email: $dialog.find('#email').val(),
@@ -174,6 +175,9 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
 
             // Display modal form.
             $dialog.find('.modal-header h3').text(EALang.new_appointment_title);
+
+            $('#valid-id-fileInput').attr('src', '');
+            $('#valid-id-fileInput2').attr('src', '');
             $dialog.modal('show');
         });
 
@@ -215,6 +219,7 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
 
             if (customer) {
                 $('#customer-id').val(customer.id);
+                $('#select-document').val(customer.document_requested);
                 $('#first-name').val(customer.first_name);
                 $('#last-name').val(customer.last_name);
                 $('#email').val(customer.email);
@@ -223,6 +228,15 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
                 $('#city').val(customer.city);
                 $('#zip-code').val(customer.zip_code);
                 $('#customer-notes').val(customer.notes);
+                $('#date-of-birth').val(customer.dateOfBirth);
+                $('#mother-maiden-name').val(customer.motherMaidenName);
+                $('#program-graduated-enrolled').val(customer.programGraduatedEnrolled);
+                $('#year-graduate').val(customer.yearGraduate);
+                $('#name-of-school-honorable-dismissal-only').val(customer.nameOfSchool);
+
+                let idArray = customer.uploaded_valid_id.split(',');
+                $('#valid-id-fileInput').attr('src', SITE_URL+'uploads'+idArray[0]);
+                $('#valid-id-fileInput2').attr('src', SITE_URL+'uploads'+idArray[1]);
             }
 
             $('#select-customer').trigger('click'); // Hide the list.
@@ -355,8 +369,8 @@ window.BackendCalendarAppointmentsModal = window.BackendCalendarAppointmentsModa
          * Event: Enter New Customer Button "Click"
          */
         $('#new-customer').on('click', function () {
-            $('#manage-appointment').find('#customer-id, #first-name, #last-name, #email, '
-                + '#phone-number, #address, #city, #zip-code, #customer-notes').val('');
+            $('#manage-appointment').find('#customer-id, #first-name, #last-name, #email, #phone-number, #address, #city, #zip-code, #customer-notes, #select-document,#date-of-birth, #mother-maiden-name, #program-graduated-enrolled, #year-graduate, #name-of-school-honorable-dismissal-only').val('');
+            $('#manage-appointment').find('#valid-id-fileInput, #valid-id-fileInput2').attr('src', '');
         });
     }
 

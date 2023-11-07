@@ -142,22 +142,12 @@
                             </div>
 
                             <div class="form-group form-check" >
-                                <strong>REMINDERS**</strong>
-                                <p>1. Appointment date DOES NOT necessarily mean we will release your document(s) on that same day.</p>
-                                <p>2. You do not need to come to LSU. We will call you on your appointment date/time.</p>
-                                <p>3. We can send you requested documents to your address through a courier or you may claim it personally in the office during the release date.</p>
-                                <p> Claim of documents by representative should provide the following: </p>
-                                <ul>
-                                    <li style="font-style: italic; font-size: 14px;">Special Power of Attorney (SPA) or Notarized Authorization Letter.</li>
-                                    <li style="font-style: italic; font-size: 14px;">Photocopy of any one (1) valid ID (preferably Government ID) of the representative and the owner.</li>
-                                    <li style="font-style: italic; font-size: 14px;">Copy of Claim Stub.</li>
-                                </ul>
                                 <div style="display: flex; align-items: center; gap: .5rem; flex-direction: row-reverse; justify-content: flex-end;">
                                     <label for="checkbox" class="control-label form-check-label" style="font-size: 15px; margin-top: 1.5%;">
                                         Please check to confirm that they have agreed/understood the following reminders
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="checkbox" class="required form-control form-check" id="checkbox" style="width: 2%;"  />
+                                    <input type="checkbox" class="required form-control form-check" id="checkbox" style="width: 2%; margin-left: -15px;"  />
 
                                 </div>
                             </div>
@@ -165,6 +155,19 @@
                         </div>
                     </div>
                 </div>
+
+                <modal>
+                    <strong>REMINDERS**</strong>
+                    <p>1. Appointment date DOES NOT necessarily mean we will release your document(s) on that same day.</p>
+                    <p>2. You do not need to come to LSU. We will call you on your appointment date/time.</p>
+                    <p>3. We can send you requested documents to your address through a courier or you may claim it personally in the office during the release date.</p>
+                    <p> Claim of documents by representative should provide the following: </p>
+                    <ul>
+                        <li style="font-style: italic; font-size: 14px;">Special Power of Attorney (SPA) or Notarized Authorization Letter.</li>
+                        <li style="font-style: italic; font-size: 14px;">Photocopy of any one (1) valid ID (preferably Government ID) of the representative and the owner.</li>
+                        <li style="font-style: italic; font-size: 14px;">Copy of Claim Stub.</li>
+                    </ul>
+                </modal>
 
                 <div class="command-buttons">
                     <span>&nbsp;</span>

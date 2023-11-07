@@ -137,8 +137,7 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
                 $dialog.find('#program-graduated-enrolled').val(customer.programGraduatedEnrolled);
                 $dialog.find('#year-graduate').val(customer.yearGraduate);
                 $dialog.find('#name-of-school-honorable-dismissal-only').val(customer.nameOfSchool);
-
-                const idArray = customer.uploaded_valid_id.split(',');
+                let idArray = customer.uploaded_valid_id.split(',');
                 $dialog.find('#valid-id-fileInput').attr('src', SITE_URL+'uploads'+idArray[0]);
                 $dialog.find('#valid-id-fileInput2').attr('src', SITE_URL+'uploads'+idArray[1]);
 
@@ -162,6 +161,7 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
                 $dialog.find('#unavailable-provider').val(unavailable.id_users_provider);
                 $dialog.find('#unavailable-end').datetimepicker('setDate', endDatetime);
                 $dialog.find('#unavailable-notes').val(unavailable.notes);
+
                 $dialog.modal('show');
             }
         });
@@ -1620,6 +1620,7 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
 
             var customer = appointment.customer;
             $dialog.find('#customer-id').val(appointment.id_users_customer);
+            $dialog.find('#select-document').val(customer.document_requested);
             $dialog.find('#first-name').val(customer.first_name);
             $dialog.find('#last-name').val(customer.last_name);
             $dialog.find('#email').val(customer.email);
@@ -1630,7 +1631,15 @@ window.BackendCalendarDefaultView = window.BackendCalendarDefaultView || {};
             $dialog.find('#appointment-location').val(appointment.location);
             $dialog.find('#appointment-notes').val(appointment.notes);
             $dialog.find('#customer-notes').val(customer.notes);
+            $dialog.find('#date-of-birth').val(customer.dateOfBirth);
+            $dialog.find('#mother-maiden-name').val(customer.motherMaidenName);
+            $dialog.find('#program-graduated-enrolled').val(customer.programGraduatedEnrolled);
+            $dialog.find('#year-graduate').val(customer.yearGraduate);
+            $dialog.find('#name-of-school-honorable-dismissal-only').val(customer.nameOfSchool);
 
+            let idArray = customer.uploaded_valid_id.split(',');
+            $dialog.find('#valid-id-fileInput').attr('src', SITE_URL+'uploads'+idArray[0]);
+            $dialog.find('#valid-id-fileInput2').attr('src', SITE_URL+'uploads'+idArray[1]);
             $dialog.modal('show');
         }
 

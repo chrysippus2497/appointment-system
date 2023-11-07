@@ -623,7 +623,6 @@ window.FrontendBook = window.FrontendBook || {};
         var address = GeneralFunctions.escapeHtml($('#address').val());
         var city = GeneralFunctions.escapeHtml($('#city').val());
         var zipCode = GeneralFunctions.escapeHtml($('#zip-code').val());
-
         var dateOfBirth =  GeneralFunctions.escapeHtml($('#date-of-birth').val());
         var motherMaidenName =  GeneralFunctions.escapeHtml($('#mother-maiden-name').val());
         var programGraduatedEnrolled =  GeneralFunctions.escapeHtml($('#program-graduated-enrolled').val());
