@@ -112,7 +112,7 @@
                                     <strong>Document</strong>
                                     <span class="text-danger">*</span>
                                 </label>
-
+                                <!-- Button trigger modal -->
                                 <select id="select-document" class="required form-control">
                                     <option value="" selected disabled>Document</option>
                                     <option value="Diploma [Baccalaurate]">Diploma [Baccalaurate]</option>
@@ -140,35 +140,44 @@
                                     <option value="Units Earned">Units Earned</option>
                                 </select>
                             </div>
-
-                            <div class="form-group form-check" >
-                                <div style="display: flex; align-items: center; gap: .5rem; flex-direction: row-reverse; justify-content: flex-end;">
-                                    <label for="checkbox" class="control-label form-check-label" style="font-size: 15px; margin-top: 1.5%;">
-                                        Please check to confirm that they have agreed/understood the following reminders
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="checkbox" class="required form-control form-check" id="checkbox" style="width: 2%; margin-left: -15px;"  />
-
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
 
-                <modal>
-                    <strong>REMINDERS**</strong>
-                    <p>1. Appointment date DOES NOT necessarily mean we will release your document(s) on that same day.</p>
-                    <p>2. You do not need to come to LSU. We will call you on your appointment date/time.</p>
-                    <p>3. We can send you requested documents to your address through a courier or you may claim it personally in the office during the release date.</p>
-                    <p> Claim of documents by representative should provide the following: </p>
-                    <ul>
-                        <li style="font-style: italic; font-size: 14px;">Special Power of Attorney (SPA) or Notarized Authorization Letter.</li>
-                        <li style="font-style: italic; font-size: 14px;">Photocopy of any one (1) valid ID (preferably Government ID) of the representative and the owner.</li>
-                        <li style="font-style: italic; font-size: 14px;">Copy of Claim Stub.</li>
-                    </ul>
-                </modal>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Reminders</h5>
+                            </div>
+                            <div class="modal-body">
+                                <p>1. Appointment date DOES NOT necessarily mean we will release your document(s) on that same day.</p>
+                                <p>2. You do not need to come to LSU. We will call you on your appointment date/time.</p>
+                                <p>3. We can send you requested documents to your address through a courier or you may claim it personally in the office during the release date.</p>
+                                <p> Claim of documents by representative should provide the following: </p>
+                                <ul>
+                                    <li style="font-style: italic; font-size: 14px;">Special Power of Attorney (SPA) or Notarized Authorization Letter.</li>
+                                    <li style="font-style: italic; font-size: 14px;">Photocopy of any one (1) valid ID (preferably Government ID) of the representative and the owner.</li>
+                                    <li style="font-style: italic; font-size: 14px;">Copy of Claim Stub.</li>
+                                </ul>
+                                <div class="form-group form-check" >
+                                    <div style="display: flex; align-items: center; gap: .5rem; flex-direction: row-reverse; justify-content: flex-end;">
+                                        <label for="checkbox" class="control-label form-check-label" style="font-size: 15px; margin-top: 1.5%;">
+                                            Please check to confirm that they have agreed/understood the following reminders
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="checkbox" class="required form-control form-check" id="checkbox" style="width: 5%; margin-left: -15px;"  />
 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" id="is_checked_btn" data-dismiss="modal" disabled>Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="command-buttons">
                     <span>&nbsp;</span>
 
@@ -583,7 +592,23 @@
         </div>
     </div>
 </div>
+<script>
+    // Function to launch the modal when the page loads
+    window.onload = function() {
+        $('#exampleModalCenter').modal('show');
+    };
 
+    // Function to disable the "Submit" button when the checkbox is checked
+    // Function to disable the "Submit" button when the checkbox is checked
+    document.addEventListener('DOMContentLoaded', function() {
+        var checkbox = document.getElementById('checkbox');
+        var submitButton = document.getElementById('is_checked_btn');
+
+        checkbox.addEventListener('change', function() {
+            submitButton.disabled = !checkbox.checked;
+        });
+    });
+</script>
 <?php if ($display_cookie_notice === '1'): ?>
     <?php require 'cookie_notice_modal.php' ?>
 <?php endif ?>

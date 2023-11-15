@@ -535,12 +535,6 @@ window.FrontendBook = window.FrontendBook || {};
                 }
             });
 
-            var $checkbox = $frame1.find('#checkbox');
-            if ($checkbox.length && !$checkbox.prop('checked')) {
-                $checkbox.parents('.form-check').addClass('text-danger');
-                throw new Error(EALang.fields_are_required);
-            }
-
             if (missingRequiredField) {
                 throw new Error(EALang.fields_are_required);
             }
@@ -804,13 +798,12 @@ window.FrontendBook = window.FrontendBook || {};
                 });
         }
 
-// Retrieve uploadedValidIds from localStorage
-        var uploadedValidIds = JSON.parse(localStorage.getItem('uploadedValidIds'));
+        // Retrieve uploadedValidIds from localStorage
+        var uploadedValidIds = JSON.parse(localStorage.getItem('uploadedValidIds')) ?? "";
         function updateCustomerData(uploadedValidIds) {
             return uploadedValidIds;
             // console.log("Customer Data:", data.customer);
         }
-
         data.customer = {
             last_name: $('#last-name').val(),
             first_name: $('#first-name').val(),
